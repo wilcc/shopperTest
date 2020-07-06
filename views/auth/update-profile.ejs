@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+    <title>Update Profile</title>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 my-form"
+        >
+          <%# if (errors.length) { %>
+          <!-- <div class="alert alert-danger alert-dismissable">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              alert-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <%#= errors %> 
+          </div> -->
+          <%# } %>
+          <form
+            role="form"
+            method="POST"
+            action="/api/users/update-profile?_method=PUT"
+          >
+            <fieldset>
+              <h2>
+                Update Profile:
+              </h2>
+              <hr class="colorgraph" />
+              <br />
+              <img
+                src="/images/profile-imageholder.png"
+                class="profile-imageholder"
+              />
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="form-control input-lg"
+                  value="<%= user.profile.name %> "
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control input-lg"
+                  value="<%= user.email %> "
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="address"
+                  name="address"
+                  id="email"
+                  class="form-control input-lg"
+                  value="<%= user.address %> "
+                />
+              </div>
+
+              <hr class="colorgraph" />
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <input
+                    type="submit"
+                    class="btn btn-lg btn-primary btn-block"
+                    value="Update"
+                  />
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+          <hr class="colorgraph" />
+          <div style="margin-top: 30px;">
+            <form
+              action="/api/users/update-password?_method=PUT"
+              role="form"
+              method="POST"
+            >
+              <h5>Change Password</h5>
+              <fieldset>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="oldPassword"
+                    id="oldPassword"
+                    class="form-control input-lg"
+                    placeholder="Old Password"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="newPassword"
+                    id="newPassword"
+                    class="form-control input-lg"
+                    placeholder="New Password"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="password"
+                    name="repeatNewPassword"
+                    id="repeatNewPassword"
+                    class="form-control input-lg"
+                    placeholder="Repeat New Password"
+                  />
+                </div>
+                
+                <hr class="colorgraph" />
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <input
+                        type="submit"
+                        class="btn btn-lg btn-primary btn-block"
+                        value="Update Password"
+                      />
+                    </div>
+                  </div>
+              </fieldset>
+            </form>
+            <hr class="colorgraph" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include ../partials/footer %> <% include ../partials/scripts %>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+    <title>Add Category</title>
+  </head>
+  <body>
+    <% include ../partials/navbar %>
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 my-form"
+        >
+          <% if (errors.length) { %>
+          <div class="alert alert-danger alert-dismissable">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              alert-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <%= errors %> 
+          </div>
+          <% } %>
+          <% if (messages.length) { %>
+            <div class="alert alert-success alert-dismissable">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                alert-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <%= messages %> 
+            </div>
+            <% } %>
+            <form role="form" method="POST" action="/api/admin/add-category">
+            <fieldset>
+              <h2>
+                Add New Category:
+              </h2>
+              <hr class="colorgraph" />
+              <div class="form-group">
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  class="form-control input-lg"
+                  placeholder="Add Category"
+                />
+              </div>
+              <hr class="colorgraph" />
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <input
+                    type="submit"
+                    class="btn btn-lg btn-primary btn-block"
+                    value="Add Category"
+                  />
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% include ../partials/footer %> <% include ../partials/scripts %>
+  </body>
+</html>
